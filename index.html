@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ravi Kumar | Backend Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f0f0f;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --accent: #9b6bff;
+            --text-light: #f5f5f5;
+            --text-grey: #b5b5b5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* NAVBAR */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 8%;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        /* HAMBURGER MENU */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px;
+            border-radius: 2px;
+        }
+
+        /* HERO SECTION */
+        .firstSection {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 100px 8%;
+            gap: 50px;
+        }
+
+        .leftSection {
+            flex: 1;
+            font-size: 2.2rem;
+            font-weight: 600;
+            min-width: 300px;
+        }
+
+        .leftSection span {
+            color: var(--accent);
+        }
+
+        .rightSection img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 0 25px rgba(155, 107, 255, 0.4);
+            transition: 0.4s ease;
+        }
+
+        .rightSection img:hover {
+            transform: scale(1.07);
+        }
+
+        /* ABOUT */
+        .secondSection {
+            text-align: center;
+            padding: 100px 8%;
+            background: linear-gradient(180deg, #141414 0%, #0f0f0f 100%);
+        }
+
+        .secondSection h2 {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+        }
+
+        .util {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .util img {
+            width: 240px;
+            height: 240px;
+            border-radius: 15px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .util .rightSection {
+            max-width: 600px;
+            text-align: left;
+            color: var(--text-grey);
+            font-size: 1rem;
+        }
+
+        /* TECHNOLOGIES */
+        .techSection {
+            text-align: center;
+            padding: 100px 8%;
+        }
+
+        .techSection h2 {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+        }
+
+        .icon {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 60px;
+        }
+
+        .icon img {
+            width: 80px;
+            height: 80px;
+            /* filter: grayscale(100%); */
+            transition: all 0.3s ease;
+        }
+
+        .icon img:hover {
+            transform: scale(1.15);
+            filter: grayscale(0);
+        }
+
+        /* PROJECTS */
+        .project-section {
+            padding: 100px 8%;
+            background-color: #141414;
+        }
+
+        .project-section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 60px;
+        }
+
+        .project {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            margin-bottom: 40px;
+            padding: 30px;
+            transition: 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(155, 107, 255, 0.2);
+        }
+
+        .project img {
+            width: 160px;
+            height: 160px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .project-content {
+            max-width: 700px;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            color: var(--text-grey);
+            line-height: 1.6;
+        }
+
+        /* CONTACT */
+        .contact-section {
+            padding: 100px 8%;
+            background: linear-gradient(180deg, #0f0f0f, #151515);
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .contact-image img {
+            width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(155, 107, 255, 0.2);
+        }
+
+        .contact-details {
+            max-width: 400px;
+        }
+
+        .contact-details h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-details hr {
+            border: none;
+            height: 3px;
+            background-color: var(--accent);
+            width: 80px;
+            margin-bottom: 20px;
+        }
+
+        .contact-details ul {
+            list-style: none;
+            color: var(--text-grey);
+            font-size: 1rem;
+            line-height: 2;
+        }
+
+        .contact-details a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .contact-details a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #0d0d0d;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                right: 8%;
+                background: rgba(25, 25, 25, 0.95);
+                padding: 20px;
+                border-radius: 8px;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .firstSection {
+                text-align: center;
+            }
+
+            .rightSection img {
+                margin: auto;
+            }
+
+            .project {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .project img {
+                margin-bottom: 20px;
+            }
+
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Ravi Kumar</div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div></div><div></div><div></div>
+        </div>
+        <ul id="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="firstSection" id="home">
+        <div class="leftSection">
+            Hello, I'm <span>Ravi Kumar</span><br>
+            A Passionate <span>Backend Developer</span>
+        </div>
+        <div class="rightSection">
+            <img src="Ravi.png" alt="Ravi Kumar">
+        </div>
+    </section>
+
+    <section class="secondSection" id="about">
+        <h2>About Me</h2>
+        <div class="util">
+            <img src="AA.png" alt="About Me">
+            <div class="rightSection">
+                I'm a detail-oriented backend developer with expertise in Java, Spring Boot, JPA, MySQL, REST APIs, and JWT Authentication. 
+                I focus on building reliable, secure, and scalable systems while following clean code and layered architecture principles. 
+                Constantly learning and improving — because the best code is never finished.
+            </div>
+        </div>
+    </section>
+
+    <section class="techSection">
+        <h2>Technologies I Use</h2>
+        <div class="icon">
+            <img src="java.png" alt="Java">
+            <img src="javascript.png" alt="JavaScript">
+            <img src="html.png" alt="HTML5">
+            <img src="api.png" alt="API">
+            <img src="mysql.png" alt="MySQL">
+            <img src="postman.png" alt="Postman">
+        </div>
+    </section>
+
+    <section class="project-section" id="projects">
+        <h2>My Projects</h2>
+
+        <div class="project">
+            <img src="e com.png" alt="E-Commerce Backend">
+            <div class="project-content">
+                <div class="project-title">E-Commerce Backend System</div>
+                <div class="project-description">
+                    Developed a secure e-commerce backend using Spring Boot, MySQL, and JWT. 
+                    Implemented APIs for product, user, and payment management with layered architecture.
+                </div>
+            </div>
+        </div>
+
+        <div class="project">
+            <img src="blog.png" alt="Blogging Platform">
+            <div class="project-content">
+                <div class="project-title">Blogging Platform</div>
+                <div class="project-description">
+                    Built a blog management system with authentication, category filters, and CRUD features 
+                    using Spring Boot, Hibernate, and RESTful design principles.
+                </div>
+            </div>
+        </div>
+
+        <div class="project">
+            <img src="url.png" alt="URL Shortener">
+            <div class="project-content">
+                <div class="project-title">URL Shortener</div>
+                <div class="project-description">
+                    Designed a URL shortener using Spring Boot and MySQL with analytics, expiration, and 
+                    redirect handling — optimized for performance and scalability.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="contact-image">
+                <img src="contact.png" alt="Contact Image">
+            </div>
+            <div class="contact-details">
+                <h2>Get in Touch</h2>
+                <hr>
+                <ul>
+                    <li>📞 +91 8802071559</li>
+                    <li>🌐 <a href="https://github.com/Ravi-kumar143" target="_blank">github.com/Ravi-kumar143</a></li>
+                    <li>✉️ ravik28092003@gmail.com</li>
+                    <li>📍 Delhi, India</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2025 Ravi Kumar — All Rights Reserved.
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
